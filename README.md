@@ -12,6 +12,7 @@ It currently supports English and Chinese adventures, time-limited campaigns, bu
 4. Launch the Windows setup app and enter your Discord and OpenAI credentials.
 5. Use the Test Configuration button to verify your setup.
 6. Start the bot from the desktop app when you are ready.
+7. You can also launch the app by double-clicking `start-desktop.bat` in the project folder.
 
 ## Requirements
 
@@ -117,6 +118,12 @@ If you enjoy the bot, donations or other support are always welcome and apprecia
 You can support the project here:
 
 [Buy Me a Coffee](https://buymeacoffee.com/gameralsoneedcoffee)
+
+## Issues and Questions
+
+If you find a bug or have a question, please open an issue on GitHub or feel free to contact me on Discord:
+
+[Discord Contact](https://discord.com/channels/325669231192571905)
 
 ## What's Next
 
