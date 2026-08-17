@@ -1,0 +1,152 @@
+<Window x:Class="AIDungeonMaster.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AI Dungeon Master Setup"
+        Width="980"
+        Height="760"
+        MinWidth="900"
+        MinHeight="700"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource AppBackgroundBrush}"
+        Foreground="White"
+        FontFamily="Segoe UI">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="28">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Border Padding="24"
+                    CornerRadius="24"
+                    Background="#FF0B1220"
+                    BorderBrush="#1F38BDF8"
+                    BorderThickness="1">
+                <StackPanel>
+                    <TextBlock Text="AI Dungeon Master"
+                               FontSize="34"
+                               FontWeight="Bold" />
+                    <TextBlock Text="Configure your Discord bot, test the connection, and launch the adventure without editing .env files."
+                               Margin="0,10,0,0"
+                               Opacity="0.85"
+                               TextWrapping="Wrap" />
+                </StackPanel>
+            </Border>
+
+            <Grid Grid.Row="1" Margin="0,22,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0"
+                        Margin="0,0,12,0"
+                        Padding="20"
+                        CornerRadius="20"
+                        Background="{DynamicResource CardBrush}">
+                    <StackPanel>
+                        <TextBlock Text="Setup"
+                                   FontSize="18"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,14" />
+
+                        <TextBlock Text="Discord Bot Token" Margin="0,8,0,6" />
+                        <PasswordBox x:Name="DiscordTokenBox"
+                                     Height="34"
+                                     PasswordChanged="DiscordTokenBox_OnPasswordChanged" />
+
+                        <TextBlock Text="OpenAI API Key" Margin="0,16,0,6" />
+                        <PasswordBox x:Name="OpenAiKeyBox"
+                                     Height="34"
+                                     PasswordChanged="OpenAiKeyBox_OnPasswordChanged" />
+
+                        <TextBlock Text="Language" Margin="0,16,0,6" />
+                        <ComboBox x:Name="LanguageComboBox"
+                                  Height="34"
+                                  ItemsSource="{Binding Languages}"
+                                  SelectedItem="{Binding SelectedLanguage, Mode=TwoWay}" />
+
+                        <TextBlock Text="Model" Margin="0,16,0,6" />
+                        <ComboBox x:Name="ModelComboBox"
+                                  Height="34"
+                                  IsEditable="True"
+                                  IsTextSearchEnabled="True"
+                                  ItemsSource="{Binding ModelPresets}"
+                                  Text="{Binding OpenAIModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                        <TextBlock Text="Default model selection is optional. The bot will use whatever value you save here."
+                                   Margin="0,12,0,0"
+                                   Opacity="0.7"
+                                   TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Column="1"
+                        Margin="12,0,0,0"
+                        Padding="20"
+                        CornerRadius="20"
+                        Background="{DynamicResource CardBrush}">
+                    <StackPanel>
+                        <TextBlock Text="Status"
+                                   FontSize="18"
+                                   FontWeight="SemiBold"
+                                   Margin="0,0,0,14" />
+
+                        <TextBlock Text="Discord connection status" />
+                        <Border Margin="0,6,0,0" Padding="10" CornerRadius="12" Background="#FF0B1220">
+                            <TextBlock Text="{Binding DiscordStatus}" TextWrapping="Wrap" />
+                        </Border>
+
+                        <TextBlock Text="OpenAI connection status" Margin="0,16,0,0" />
+                        <Border Margin="0,6,0,0" Padding="10" CornerRadius="12" Background="#FF0B1220">
+                            <TextBlock Text="{Binding OpenAIStatus}" TextWrapping="Wrap" />
+                        </Border>
+
+                        <TextBlock Text="Errors" Margin="0,16,0,0" />
+                        <Border Margin="0,6,0,0" Padding="10" CornerRadius="12" Background="#FF0B1220">
+                            <TextBlock Text="{Binding ErrorMessage}"
+                                       TextWrapping="Wrap"
+                                       Foreground="#FFFCA5A5" />
+                        </Border>
+
+                        <StackPanel Orientation="Horizontal" Margin="0,22,0,0">
+                            <Button Content="Test Configuration"
+                                    Width="160"
+                                    Height="38"
+                                    Margin="0,0,12,0"
+                                    Click="TestConfigurationButton_OnClick" />
+                            <Button Content="Start Dungeon Master"
+                                    Width="180"
+                                    Height="38"
+                                    Click="StartButton_OnClick" />
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Border Grid.Row="2"
+                    Margin="0,22,0,0"
+                    Padding="20"
+                    CornerRadius="20"
+                    Background="{DynamicResource CardBrush}">
+                <StackPanel>
+                    <TextBlock Text="Status Log"
+                               FontSize="18"
+                               FontWeight="SemiBold"
+                               Margin="0,0,0,12" />
+                    <TextBox x:Name="LogTextBox"
+                             Height="280"
+                             Background="#FF0B1220"
+                             Foreground="White"
+                             BorderThickness="0"
+                             IsReadOnly="True"
+                             TextWrapping="Wrap"
+                             VerticalScrollBarVisibility="Auto"
+                             HorizontalScrollBarVisibility="Disabled" />
+                </StackPanel>
+            </Border>
+        </Grid>
+    </ScrollViewer>
+</Window>

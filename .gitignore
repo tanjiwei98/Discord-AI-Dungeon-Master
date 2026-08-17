@@ -1,0 +1,49 @@
+# Local secrets and environment files
+.env
+.env.*
+!.env.example
+
+# Build output
+bin/
+obj/
+out/
+publish/
+outcheck*/
+artifacts/
+
+# Runtime data
+data/
+
+# IDE and editor files
+.vs/
+.idea/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.rsuser
+*.csproj.user
+*.code-workspace
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.cache
+*.pid
+*.seed
+
+# Archives and packaged outputs
+*.zip
+*.7z
+*.tar
+*.gz
+
+# Legacy launchers
+start.bat
+reset_game.bat
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
