@@ -114,6 +114,10 @@ OPENAI_TTS_VOICE_EN=
 
 If you enjoy the bot, donations or other support are always welcome and appreciated.
 
+You can support the project here:
+
+[Buy Me a Coffee](https://buymeacoffee.com/gameralsoneedcoffee)
+
 ## What's Next
 
 This project is still being actively improved. Future updates may expand the adventure flow, improve voice behavior, and refine the gameplay experience.
